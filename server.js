@@ -15,7 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 const file = path.join(__dirname, 'db.json');
-const db = new Low(adapter, { items: [] });
+const adapter = new JSONFile(file);
+const db = new Low(adapter, { items: [] }); // <- ITO LANG BINAGO
+
 async function init() {
   await db.read();
   db.data ||= { items: [] };
