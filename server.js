@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 const file = path.join(__dirname, 'db.json');
-const db = new Low(adapter);
+const db = new Low(adapter, { items: [] });
 async function init() {
   await db.read();
   db.data ||= { items: [] };
